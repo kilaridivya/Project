@@ -37,7 +37,10 @@ public class Device extends AuditEntity
      @Enumerated(value = EnumType.STRING)
      protected DeviceStatus status;
 
+
      protected String deviceNo;
+
+
 
      public void setStatus(DeviceStatus status) {
           this.status = status;
