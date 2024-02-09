@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
+
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -26,6 +26,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 public class AuditEntity
 {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "uuid")
@@ -41,6 +42,9 @@ public class AuditEntity
 
     @CreatedBy
     protected String createdBy;
-    @LastModifiedBy
-    protected String modifiedBy;
+
+    public AuditEntity() {
+        this.createdDateTime = LocalDateTime.now();
+    }
+
 }
